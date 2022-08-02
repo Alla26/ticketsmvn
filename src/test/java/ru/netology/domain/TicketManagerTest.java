@@ -14,6 +14,7 @@ public class TicketManagerTest {
     Ticket ticket2 = new Ticket(2, 22_000, "AER", "VKO", 120);
     Ticket ticket3 = new Ticket(3, 23_000, "SVO", "LED", 120);
     Ticket ticket4 = new Ticket(4, 23_000, "KZN", "GOJ", 120);
+    Ticket ticket5 = new Ticket(5, 21_000, "KZN", "VKO", 120);
 
     @BeforeEach
     public void setup() {
@@ -21,6 +22,7 @@ public class TicketManagerTest {
         manager.add(ticket2);
         manager.add(ticket3);
         manager.add(ticket4);
+        manager.add(ticket5);
 
     }
 
@@ -51,6 +53,17 @@ public class TicketManagerTest {
 
         Ticket[] expected = {ticket3, ticket4};
         Ticket[] actual = manager.findAll("SVO", "GOJ");
+
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldFindTicketsMoreThanTwo() {
+
+        Ticket[] expected = {ticket5, ticket4, ticket1};
+        Ticket[] actual = manager.findAll("KZN", "KGD");
 
 
         Assertions.assertArrayEquals(expected, actual);
