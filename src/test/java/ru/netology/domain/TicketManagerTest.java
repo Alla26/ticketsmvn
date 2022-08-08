@@ -31,7 +31,7 @@ public class TicketManagerTest {
 
     }
 
-    @Test
+   /* @Test
     public void shouldFindTicketsWhenNextLess() {
 
 
@@ -41,7 +41,7 @@ public class TicketManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
 
-    }
+    }*/
 
     @Test
     public void shouldFindTicketsWhenNextBigger() {
@@ -86,5 +86,28 @@ public class TicketManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
+    @Test
+    public void shouldFindOneTicket() {
+
+        Ticket[] expected = {ticket4};
+        Ticket[] actual = manager.findAllWithoutComparator("CEK", "GOJ");
+
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldNotFindTickets() {
+
+        Ticket[] expected = {};
+        Ticket[] actual = manager.findAllWithoutComparator("SVX", "CEK");
+
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
 
 }
