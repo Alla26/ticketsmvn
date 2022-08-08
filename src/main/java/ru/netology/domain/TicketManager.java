@@ -18,6 +18,7 @@ public class TicketManager {
     }
 
     public void add(Ticket ticket) {                 //добавляет продукты
+
         repo.save(ticket);
     }
 
@@ -33,8 +34,9 @@ public class TicketManager {
                 tmp[tmp.length - 1] = ticket;
                 result = tmp;
             }
-            Arrays.sort(result);
+            //  Arrays.sort(result);
         }
+        Arrays.sort(result);
         return result;
     }
 
